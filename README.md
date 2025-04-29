@@ -32,12 +32,6 @@ A Streamlit-based web application that leverages Azure OpenAI's gpt-image-1 mode
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
 
-   streamlit
-   python-dotenv
-   pillow
-   requests
-   openai
-
    ```
 
 5. Configure Environment Variables:
