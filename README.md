@@ -1,4 +1,4 @@
-### Image Manipulation Studio
+### Image Manipulation Example for gpt-image-1
 
 A Streamlit-based web application that leverages Azure OpenAI's gpt-image-1 model for image generation and editing. Users can generate images from text prompts or edit existing images using custom or preset instructions.
 
