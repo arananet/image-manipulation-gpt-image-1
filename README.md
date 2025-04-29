@@ -6,6 +6,7 @@ A Streamlit-based web application that leverages Azure OpenAI's gpt-image-1 mode
 
 - Text-to-Image Generation: Create images from text prompts.
 - Image Editing: Upload an image and apply transformations based on text instructions.
+- In-painting Mode: Use masks to modify specific regions of an image.
 - Preset Prompts: Choose from categorized preset prompts for common edits (e.g., color changes, background changes, style transfers, scene changes).
 - Customizable Settings: Adjust image size, quality, and number of output variations.
 - Downloadable Results: Save generated or edited images as PNG files.
@@ -14,7 +15,7 @@ A Streamlit-based web application that leverages Azure OpenAI's gpt-image-1 mode
 
 - Python 3.8 or higher
 - Azure OpenAI subscription with access to the gpt-image-1 model
-- Environment variables configured in a .env file
+- Environment variables are configured in a .env file
 
 ## Installation
 
@@ -62,17 +63,21 @@ A Streamlit-based web application that leverages Azure OpenAI's gpt-image-1 mode
 1. Select Mode:
    - Choose Text to Image to generate an image from a text prompt.
    - Choose Image Editing to upload and edit an existing image.
+   - Choose In-painting (Mask) to modify specific regions of an image using a mask.
 
 2. Upload Image (Image Editing Mode):
    - Upload a JPG, JPEG, or PNG image.
+  
+3. Upload Mask (In-painting Mode):
+   - Upload a mask image where areas to modify should be transparent or white, and areas to preserve should be black. The mask must match the dimensions of the base image.
 
-3. Enter Instructions:
+4. Enter Instructions:
    - Provide a custom prompt in the text area, or select a preset prompt from categories like Color Changes, Background Changes, Style Transfers, or Scene Changes.
 
-4. Configure Settings:
+5. Configure Settings:
    - In the sidebar, adjust the image size, quality, and number of results (1-4).
 
-5. Generate/Transform:
+6. Generate/Transform:
    - Click the "Generate Image" or "Transform Image" button to process the request.
    - Results will appear in the right column, with options to download each image.
 
@@ -82,6 +87,7 @@ image-manipulation-studio/
 ├── app.py              # Main Streamlit application
 ├── .env                # Environment variables (not tracked)
 ├── requirements.txt    # Python dependencies
+├── in-painting-example/ # Folder to test in-painting functionality
 └── README.txt          # Project documentation
 ```
 
@@ -91,11 +97,8 @@ image-manipulation-studio/
 - Temporary files are created for uploaded images and deleted after processing.
 - The app supports images in PNG format for output.
 - The LLM-related environment variables are included but not used in the current implementation.
+- The mask used in in-painting mode should have transparent or white areas for regions to change and black areas for regions to preserve. The mask will be processed to ensure it matches the dimensions of the base image and converted to a binary format where necessary.
 
 ## Author
 
 Developed by Eduardo Arana
-
-## License
-
-This project is licensed under the MIT License.
